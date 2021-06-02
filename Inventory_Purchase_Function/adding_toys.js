@@ -13,10 +13,10 @@ const toys = [
         Web_Link: "http://content.time.com/time/specials/packages/article/0,28804,2049243_2048661_2049232,00.html"
     },
     
-    neodymium_Magnet_Toy= {
+    neodymium_Magnet_toy= {
     
         id: 2,
-        name: "Neodymium-Magnet Toy",
+        name: "Neodymium-Magnet toy",
         price: 25.99,
         Brand: "buckminsterfullerene",
         Design: "Slender",
@@ -44,7 +44,6 @@ const toys = [
 ]
 
 const mindflex = {
-    id: 4,
     name: "Mindflex",
     price: 50.00,
     Brand: "Mattel",
@@ -58,7 +57,6 @@ const mindflex = {
     }
 
 const zhuzhu = {
-    id: 5,
     name: "Zhu Zhu",
     price: 5.00,
     Brand: "Russ Hornsby",
@@ -71,9 +69,22 @@ const zhuzhu = {
     Web_Link: "http://content.time.com/time/specials/packages/article/0,28804,2049243_2048662_2049237,00.html"
     }
 
-toys.push(mindflex)
-toys.push(zhuzhu)
+const adding_toys = (toyObj) => {
+    const lastIndex = toys.length - 1
+    const currentLastToy = toys[lastIndex]
+    const maxId = currentLastToy.id
+    const idForNewToy = maxId + 1
+
+    toyObj.id = idForNewToy
+    toys.push(toyObj)
+}
+
+adding_toys(mindflex);
+adding_toys(zhuzhu);
 
 for (const toy of toys) {
-    console.log(toy.name)
+    toy.price = toy.price * 1.05
+    console.log(`The ${toy.Brand} ${toy.name} costs ${toy.price} dollars.`)
 }
+
+console.log(toys)
